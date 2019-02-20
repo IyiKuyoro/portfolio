@@ -11,8 +11,8 @@
     "ng": "ng",
     "start": "node server.js",
     "start:dev": "ng serve --port 4100",
-    "test": "ng test --watch=false",
-    "test:watch": "ng test --watch=false"
+    "test": "ng test --watch=false --code-coverage",
+    "test:watch": "npm run lint && ng test --watch=true --code-coverage"
   },
   "private": true,
   "dependencies": {
@@ -67,5 +67,15 @@
       "chore"
     ],
     "scope": "\\S+.*"
+  },
+  "nyc": {
+    "extensions": [
+      ".ts"
+    ],
+    "exclude": [
+      "**/*.js",
+      "**/*.spec.ts",
+      "**/tests.*.ts"
+    ]
   }
 }
