@@ -1,5 +1,5 @@
 # Iyikuyoro
-[![Build Status](https://travis-ci.org/IyiKuyoro/iyikuyoro.svg?branch=develop)](https://travis-ci.org/IyiKuyoro/iyikuyoro)
+[![Build Status](https://travis-ci.org/IyiKuyoro/iyikuyoro.svg?branch=develop)](https://travis-ci.org/IyiKuyoro/iyikuyoro) [![Build Status](https://img.shields.io/badge/protected__by-hound-9c60cb.svg)](https://houndci.com)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
 
