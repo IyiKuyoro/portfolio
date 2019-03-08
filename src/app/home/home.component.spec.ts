@@ -6,14 +6,20 @@ import { HomeComponent } from './home.component';
 import { ArticlesService } from '../../services/articles.service';
 import { AppRoutingModule } from '../app-routing.module';
 import { AngularMaterialModule } from '../angular-material.module';
-import { ArticlesGroupComponent } from './articles-group/articles-group.component';
 import { TruncatePipe } from '../../pipes/truncate.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Component } from '@angular/core';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
+
+  @Component({
+    selector: 'app-articles-group',
+    template: '<div></div>'
+  })
+  class ArticlesGroupComponent {}
 
   beforeEach(async(() => {
     const mockArticleService = {};
@@ -32,7 +38,7 @@ describe('HomeComponent', () => {
         AngularMaterialModule,
         BrowserAnimationsModule,
         CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'iyikuyoro'}),
-        HttpClientModule
+        HttpClientTestingModule
       ]
     })
     .compileComponents();
@@ -46,5 +52,12 @@ describe('HomeComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should close the sidenav', () => {
+    spyOn(component.sidenav, 'close');
+    component.closeSideNav();
+
+    expect(component.sidenav.close).toHaveBeenCalledTimes(1);
   });
 });

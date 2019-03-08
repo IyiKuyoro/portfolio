@@ -3,7 +3,7 @@
     <h2 class="category-header">Inspirational</h2>
     <div class="articles-group">
       <a
-        *ngFor="let article of articlesService.otherArticles"
+        *ngFor="let article of otherArticles"
         class="article-card"
         [clBackgroundImage]="article.image"
         (click)="selectArticle(article.link)"
@@ -14,7 +14,7 @@
     <h2 class="category-header">Technical</h2>
     <div class="articles-group flex">
       <a
-        *ngFor="let article of articlesService.techArticles"
+        *ngFor="let article of techArticles"
         class="flex article-card"
         [clBackgroundImage]="article.image"
         (click)="selectArticle(article.link)"
