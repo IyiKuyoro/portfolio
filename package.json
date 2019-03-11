@@ -3,10 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "ng build --prod",
+    "build": "npm run clean && ng build --prod",
     "clean": "rm -rf dist",
     "e2e": "ng e2e",
-    "heroku-postbuild": "npm run clean && npm run build",
     "lint": "ng lint",
     "ng": "ng",
     "start": "node server.js",
