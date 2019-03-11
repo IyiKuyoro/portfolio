@@ -1,0 +1,26 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=24e494d8c3bdf778ade0b453ac1c211c3908d45a3b1cf1d98286d8a248d49d6a
+
+language: node_js
+
+node_js:
+  - "stable"
+dist: trusty
+addons:
+  chrome: stable
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
+script:
+  - yarn run test
+
+after_script:
+  - ./cc-test-reporter after-build --coverage-input-type lcov --exit-code $TRAVIS_TEST_RESULT
+
+notifications:
+  email: false
