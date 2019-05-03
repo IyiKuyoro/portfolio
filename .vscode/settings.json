@@ -3,6 +3,7 @@
     "buildpacks",
     "compat",
     "crossorigin",
+    "fortawesome",
     "mat",
     "module",
     "rxjs",
