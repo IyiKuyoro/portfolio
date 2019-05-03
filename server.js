@@ -1,13 +1,17 @@
 const express = require('express');
 const path = require('path');
+const http = require('http');
 
 const app = express();
-app.use(express.static(__dirname + '/dist'));
-const port = process.env.PORT || 8080;
-app.listen(port);
+app.use(express.static(__dirname + 'dist'));
 
-app.get('/*', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
 
-console.log(`Server is running on port: ${port}`);
+const server = http.createServer(app);
+
+const port = process.env.PORT || 8080;
+server.listen(port, () => {
+  console.log(`Server is running on port: ${port}`);
+});

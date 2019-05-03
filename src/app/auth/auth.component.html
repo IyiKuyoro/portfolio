@@ -1,0 +1,47 @@
+<div class="background">
+  <form
+    [formGroup]="loginForm"
+    class="sign-in-form"
+    (ngSubmit)="submit()"
+  >
+    <h2>Sign-In</h2>
+    <p id="authMessage">
+      Authorization error. Please confirm the username and password.
+    </p>
+    <input
+      id="username"
+      type="text"
+      placeholder="Username"
+      formControlName="username"
+      aria-label="Username"
+    />
+    <p
+      class="inputMessage"
+      [ngClass]="{userNameError: !loginForm.controls['username'].valid && loginForm.controls['username'].touched}">
+      Please provide a username
+    </p>
+    <div class="password-container">
+      <fa-icon (click)="togglePassword()" class="eye-icon" [icon]="faEye"></fa-icon>
+      <input
+        id="password"
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+        aria-label="Password"
+      />
+    </div>
+    <p
+      class="inputMessage"
+      [ngClass]="{userNameError: !loginForm.controls['password'].valid && loginForm.controls['password'].touched}">
+      Please provide a password
+    </p>
+    <div class="password-container">
+      <i id="loader" class="loader fas fa-circle-notch fa-spin"></i>
+      <input
+        class="submit" type="submit"
+        [disabled]="!loginForm.valid"
+        [ngClass]="{disabled: !loginForm.valid}"
+      />
+    </div>
+  </form>
+</div>

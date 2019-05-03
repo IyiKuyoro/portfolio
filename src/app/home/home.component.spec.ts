@@ -10,6 +10,10 @@ import { TruncatePipe } from '../../pipes/truncate.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Component } from '@angular/core';
+import { AuthComponent } from '../auth/auth.component';
+import { DashboardComponent } from '../dashboard/dashboard.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -27,6 +31,8 @@ describe('HomeComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         ArticlesGroupComponent,
+        AuthComponent,
+        DashboardComponent,
         HomeComponent,
         TruncatePipe
       ],
@@ -38,7 +44,9 @@ describe('HomeComponent', () => {
         AngularMaterialModule,
         BrowserAnimationsModule,
         CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'iyikuyoro'}),
-        HttpClientTestingModule
+        FontAwesomeModule,
+        HttpClientTestingModule,
+        ReactiveFormsModule,
       ]
     })
     .compileComponents();
