@@ -5,28 +5,25 @@ import * as Cloudinary from 'cloudinary-core';
 import { ArticlesGroupComponent } from './articles-group.component';
 import { ArticlesService } from '../../../services/articles.service';
 import { TruncatePipe } from '../../../pipes/truncate.pipe';
-import { data } from '../../../assets/articles-data';
-import { By } from '@angular/platform-browser';
+import { MockArticlesService } from '../../../services/__mocks__/articles.service.mock';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ArticlesGroupComponent', () => {
   let component: ArticlesGroupComponent;
   let fixture: ComponentFixture<ArticlesGroupComponent>;
 
   beforeEach(async(() => {
-    const mockArticleService = {
-      articles: data
-    };
-
     TestBed.configureTestingModule({
       declarations: [
         ArticlesGroupComponent,
         TruncatePipe
       ],
       imports: [
+        RouterTestingModule,
         CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'iyikuyoro'}),
       ],
       providers: [
-        { provide: ArticlesService, useValue: mockArticleService }
+        { provide: ArticlesService, useClass: MockArticlesService }
       ]
     })
     .compileComponents();
@@ -42,14 +39,11 @@ describe('ArticlesGroupComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('selectArticle', () => {
-    it('should call the selectArticle method when an article is clicked', () => {
-      spyOn(component, 'selectArticle');
-      const articles = fixture.debugElement.queryAll(By.css('a'));
+  it('should have one article in tech', () => {
+    expect(component.techArticles.length).toBe(1);
+  });
 
-      articles[0].triggerEventHandler('click', {});
-
-      expect(component.selectArticle).toHaveBeenCalledWith(component.otherArticles[0].link);
-    });
+  it('should have two article in inspirational', () => {
+    expect(component.otherArticles.length).toBe(1);
   });
 });

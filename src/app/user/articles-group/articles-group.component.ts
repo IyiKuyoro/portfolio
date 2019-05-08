@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { ArticlesService } from '../../../services/articles.service';
 import { IArticle } from '../../../models/IArticle.model';
@@ -15,7 +16,8 @@ export class ArticlesGroupComponent {
   public otherArticles: IArticle[] = [];
 
   constructor(
-    public articlesService: ArticlesService
+    public articlesService: ArticlesService,
+    private router: Router,
   ) {
     this.articlesService.getAllArticles(1, 20)
       .subscribe((data: IGetArticleResponse) => {
@@ -30,7 +32,6 @@ export class ArticlesGroupComponent {
     let noOfOtherArticles = 0;
 
     this.articles.forEach((article) => {
-      console.log(this.articles);
       if (article.category === 'tech' && noOfTechArticles < 10) {
         noOfTechArticles += 1;
         this.techArticles.push(article);
@@ -45,7 +46,7 @@ export class ArticlesGroupComponent {
 
   selectArticle(article: IArticle): void  {
     if (!article.external) {
-
+      this.router.navigate(['/article', article.slug]);
     } else {
       window.location.href = article.link;
     }
