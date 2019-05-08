@@ -1,0 +1,131 @@
+div, section {
+  width: 100%;
+}
+
+.body {
+  min-height: 100%;
+  margin-bottom: -87px;
+}
+
+.content-inside {
+  padding-bottom: 87px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.stack {
+  width: fit-content;
+  height: 100px;
+}
+
+.lang {
+  margin: 0 10px;
+  height: 40px;
+}
+
+.lang:first-of-type {
+  margin-left: 20px;
+}
+
+.lang:last-of-type {
+  margin-right: 20px;
+}
+
+.side-nav-link {
+  justify-content: center;
+  font-size: 25px;
+  margin-left: 10px;
+  color: #959595;
+}
+
+.is-active {
+  color: black;
+  font-weight: bolder;
+}
+
+mat-sidenav {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+}
+
+mat-sidenav-container {
+  height: 100%;
+}
+
+.small-screen-nav {
+  color: #959595;
+  display: none;
+  height: 50px;
+  width: 50px;
+  margin: auto 0;
+  font-size: 25px;
+  border: none;
+  line-height: 50px;
+  text-align: center;
+}
+
+.small-screen-nav {
+  margin-left: auto;
+}
+
+.small-screen-nav:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.small-screen-nav:focus {
+  color: black;
+  outline-style: none;
+}
+
+@media screen and (max-width: 1593px) {
+  .intro {
+    margin: 0 25%;
+  }
+}
+
+@media screen and (max-width: 1084px) {
+  .intro {
+    margin: 0 20%;
+  }
+}
+
+@media screen and (max-width: 903px) {
+  .intro {
+    margin: 0 10%;
+  }
+
+  h1 {
+    font-size: 1.0em;
+  }
+
+  p {
+    font-size: 0.9em;
+  }
+}
+
+
+@media screen and (max-width: 369px) {
+  h1 {
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+}
+
+@media screen and (max-width: 337px) {
+  h1 {
+    margin-left: 70px;
+    margin-right: 70px;
+  }
+}
+
+@media screen and (max-width: 316px) {
+  h1 {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}

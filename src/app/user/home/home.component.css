@@ -1,0 +1,12 @@
+div, section {
+  width: 100%;
+}
+
+.body {
+  min-height: 100%;
+  margin-bottom: -87px;
+}
+
+.content-inside {
+  padding-bottom: 87px;
+}

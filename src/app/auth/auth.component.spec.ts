@@ -8,21 +8,13 @@ import { AuthComponent } from './auth.component';
 import { AuthService } from '../../../src/services/auth.service';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
+import mockAuthService from '../../../src/services/__mocks__/auth.service.mock';
 
 describe('AuthComponent', () => {
   let component: AuthComponent;
   let fixture: ComponentFixture<AuthComponent>;
   let element: HTMLElement;
 
-  class MockAuthService {
-    login() {
-      return of({
-        success: true,
-        message: 'message',
-      });
-    }
-  }
-  const mockAuthService = new MockAuthService();
   class MockRouter {
     navigate() {
       console.log('stuff');
@@ -89,7 +81,7 @@ describe('AuthComponent', () => {
       component.submit();
       fixture.detectChanges();
 
-      expect(mockRouter.navigate).toHaveBeenCalledWith(['/dashboard']);
+      expect(mockRouter.navigate).toHaveBeenCalledWith(['/admin/dashboard']);
     });
 
     it('should should call the handleError function', () => {
