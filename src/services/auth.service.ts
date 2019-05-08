@@ -8,11 +8,29 @@ export class AuthService {
     private http: HttpClient,
   ) { }
 
-  login(username, password) {
+  login(username: string, password: string) {
     const url = `${environment.backendUrl}/auth/signin`;
     return this.http.post(url, {
       userName: username,
       password,
     });
+  }
+
+  authorize() {
+    sessionStorage.setItem('authorized', 'true');
+  }
+
+  deAuthorize() {
+    sessionStorage.setItem('authorized', 'false');
+  }
+
+  checkAuthorization() {
+    const auth = sessionStorage.getItem('authorized');
+
+    if (auth === 'true') {
+      return true;
+    }
+
+    return false;
   }
 }

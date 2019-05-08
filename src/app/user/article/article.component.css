@@ -1,0 +1,67 @@
+.flex {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.found img {
+  width: 100%;
+  max-height: 462px;
+  object-fit: cover;
+}
+
+.found h1 {
+  font-size: 45px;
+}
+
+.author {
+  font-style: italic;
+  font-size: 16px;
+}
+
+.article-body {
+  font-size: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  padding: 0 20px;
+  text-align: justify;
+}
+
+.not-found h1 {
+  font-size: 75px;
+}
+
+.not-found h2 {
+  max-width: 1070px;
+  font-size: 45px;
+}
+
+.not-found p {
+  font-size: 30px;
+}
+
+div, section {
+  width: 100%;
+}
+
+.body {
+  min-height: 100%;
+  margin-bottom: -87px;
+}
+
+.content-inside {
+  padding-bottom: 87px;
+}
+
+@media screen and (max-width: 425px) {
+  .found h1 {
+    font-size: 35px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .article-body {
+    font-size: 20px;
+  }
+}

@@ -40,7 +40,8 @@ export class AuthComponent implements OnInit {
       loader.style.display = 'none';
 
       if (data.success) {
-        this.router.navigate(['/dashboard']);
+        this.authService.authorize();
+        this.router.navigate(['/admin/dashboard']);
       } else {
         this.handleError();
       }
@@ -48,6 +49,7 @@ export class AuthComponent implements OnInit {
   }
 
   handleError() {
+    this.authService.deAuthorize();
     const loader = document.getElementById('loader');
     loader.style.display = 'none';
     const authMessage = document.getElementById('authMessage');

@@ -1,0 +1,21 @@
+<div class="body">
+  <div class="content-inside">
+    <app-header></app-header>
+    <div *ngIf="article" class="found">
+      <img *ngIf="article.imageUrl" [src]="article.imageUrl">
+      <h1>{{article.title}}</h1>
+      <p class="author">By: {{article.authors | authors}}</p>
+      <p></p>
+      <p class="article-body">
+        {{article.body}}
+      </p>
+    </div>
+    <div *ngIf="!article" class="not-found flex">
+      <h1>404</h1>
+      <h2>Seems like the article you are looking for is not available</h2>
+      <p>Here are some others</p>
+      <app-articles-group></app-articles-group>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
