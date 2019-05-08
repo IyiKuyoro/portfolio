@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import { Cloudinary as CloudinaryCore } from 'cloudinary-core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AngularMaterialModule } from './angular-material.module';
 import { AppComponent } from './app.component';
@@ -13,7 +14,6 @@ import { ArticlesService } from '../../src/services/articles.service';
 import { AuthService } from '../../src/services/auth.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './home/home.component';
-import { HttpClientModule } from '@angular/common/http';
 import { TruncatePipe } from '../pipes/truncate.pipe';
 import { AuthComponent } from './auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';

@@ -5,8 +5,8 @@
       <a
         *ngFor="let article of otherArticles"
         class="article-card"
-        [clBackgroundImage]="article.image"
-        (click)="selectArticle(article.link)"
+        [clBackgroundImage]="article.imageUrl || 'https://res.cloudinary.com/iyikuyoro/image/upload/v1551336637/portfolio%20assets/patrick-fore-381200-unsplash.jpg'"
+        (click)="selectArticle(article)"
       >
         <div class="article-card-title">{{article.title | truncate:"40"}}</div>
       </a>
@@ -16,8 +16,8 @@
       <a
         *ngFor="let article of techArticles"
         class="flex article-card"
-        [clBackgroundImage]="article.image"
-        (click)="selectArticle(article.link)"
+        [clBackgroundImage]="article.imageUrl || 'https://res.cloudinary.com/iyikuyoro/image/upload/v1551336637/portfolio%20assets/patrick-fore-381200-unsplash.jpg'"
+        (click)="selectArticle(article)"
       >
         <div class="article-card-title">{{article.title | truncate:"40"}}</div>
       </a>
