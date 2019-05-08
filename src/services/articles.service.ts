@@ -1,13 +1,23 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
-import { IArticle } from '../../src/models/IArticle.model';
-import { data } from '../assets/articles-data';
+import { environment } from '../environments/environment';
 
 @Injectable()
 export class ArticlesService {
-  articles: IArticle[];
+  constructor(
+    private http: HttpClient,
+  ) {
+  }
 
-  constructor() {
-    this.articles = data;
+  getAllArticles(page: number, count: number) {
+    const url = `${environment.backendUrl}/articles`;
+    let params = new HttpParams();
+
+    // Begin assigning parameters
+    params = params.append('page', page.toString());
+    params = params.append('count', count.toString());
+
+    return this.http.get(url, { params });
   }
 }
