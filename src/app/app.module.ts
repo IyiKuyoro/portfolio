@@ -13,6 +13,7 @@ import { AuthService } from '../../src/services/auth.service';
 import { AuthComponent } from './auth/auth.component';
 import { GlobalService } from '../../src/services/global.service';
 import { AngularMaterialModule } from './angular-material.module';
+import { SharedModule } from './shared.module';
 
 export const cloudinary = {
   Cloudinary: CloudinaryCore
@@ -31,6 +32,7 @@ export const cloudinary = {
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
+    SharedModule,
   ],
   providers: [
     AuthService,
