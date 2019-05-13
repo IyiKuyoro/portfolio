@@ -6,13 +6,12 @@ import { Cloudinary as CloudinaryCore } from 'cloudinary-core';
 
 import { TruncatePipe } from '../../pipes/truncate.pipe';
 import { ArticlesGroupComponent } from './articles-group/articles-group.component';
-import { HeaderComponent } from '../header/header.component';
 import { UserRoutingModule } from './user-routeing.module';
 import { HomeComponent } from './home/home.component';
-import { FooterComponent } from '../footer/footer.component';
 import { ArticleComponent } from './article/article.component';
 import { AuthorsPipe } from '../../pipes/authors.pipe';
 import { AngularMaterialModule } from '../angular-material.module';
+import { SharedModule } from '../shared.module';
 
 export const cloudinary = {
   Cloudinary: CloudinaryCore
@@ -25,12 +24,11 @@ export const cloudinary = {
     CloudinaryModule.forRoot(cloudinary, { cloud_name: 'iyikuyoro'}),
     UserRoutingModule,
     FontAwesomeModule,
+    SharedModule,
   ],
   exports: [],
   declarations: [
     ArticlesGroupComponent,
-    FooterComponent,
-    HeaderComponent,
     HomeComponent,
     TruncatePipe,
     AuthorsPipe,
