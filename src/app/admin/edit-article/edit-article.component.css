@@ -1,0 +1,95 @@
+div, section {
+  width: 100%;
+}
+
+.body {
+  min-height: 100%;
+  margin-bottom: -87px;
+}
+
+.content-inside {
+  padding-bottom: 87px;
+  height: 100%;
+}
+
+.categories {
+  font-size: 20px;
+}
+
+.title {
+  border: none;
+  font-size: 35px;
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  background-color: #ffffff00;
+}
+
+.submit-btn {
+  height: 55px;
+  border: none;
+  width: 150px;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: #adffb8;
+  box-shadow: 4px 4px 7px 0px #c4c4c4;
+}
+
+.submit-btn:disabled {
+  display: none;
+}
+
+.submit-btn:focus {
+  outline: none;
+  background-color: #c4c4c4;
+  box-shadow: none;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+.rad-btn {
+  margin-right: 20px;
+}
+
+.image-label {
+  font-size: 20px;
+  border-radius: 50%;
+  background-color: #C4C4C4;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  margin-top: 20px;
+  position: absolute;
+}
+
+.upload-icon {
+  align-self: center;
+}
+
+.image-container {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.image-container input{
+  position: absolute;
+  top: -999999999px;
+  left: -99999999px;
+}
+
+.image-container img {
+  max-height: 462px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.label-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}

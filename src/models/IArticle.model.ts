@@ -11,3 +11,10 @@ export interface IArticle {
   external: boolean;
   createdAt?: Date;
 }
+
+export interface INewArticle {
+  title: string;
+  authors: string;
+  category: string;
+  body: string;
+}

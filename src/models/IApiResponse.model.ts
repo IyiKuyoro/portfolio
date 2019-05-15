@@ -4,3 +4,16 @@ export interface IApiResponse {
   data?: Object;
   possibleCauses?: string[];
 }
+
+export interface IAuthApiResponse {
+  success: boolean;
+  message: string;
+  data?: {
+    firstName: string;
+    lastName: string;
+    userName: string;
+    email: string;
+    token: string;
+  };
+  possibleCauses?: string[];
+}
