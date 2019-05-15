@@ -5,6 +5,7 @@ import { Cloudinary as CloudinaryCore } from 'cloudinary-core';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 export const cloudinary = {
   Cloudinary: CloudinaryCore
@@ -12,6 +13,7 @@ export const cloudinary = {
 
 @NgModule({
   imports: [
+    CommonModule,
     RouterModule,
     CloudinaryModule.forRoot(cloudinary, { cloud_name: 'iyikuyoro'}),
   ],

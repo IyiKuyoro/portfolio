@@ -22,7 +22,8 @@
       </div>
       <nav class="push-right">
         <ul class="flex">
-          <li tabindex="1" [routerLink]="['/']" routerLinkActive="router-link-active"  class="nav-link">Résumé</li>
+          <li *ngIf="route === '/'" tabindex="1" [routerLink]="['/']" routerLinkActive="router-link-active"  class="nav-link">Résumé</li>
+          <li *ngIf="route === '/admin/dashboard'" tabindex="1" [routerLink]="['/admin/new-article']" routerLinkActive="router-link-active"  class="nav-link">Add Article</li>
           <!-- <li tabindex="1" [routerLink]="['/']" routerLinkActive="router-link-active"  class="nav-link">Articles</li>
           <li tabindex="1" [routerLink]="['/']" routerLinkActive="router-link-active"  class="nav-link">Open Source Projects</li> -->
         </ul>

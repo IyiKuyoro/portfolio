@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../../services/global.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +8,15 @@ import { GlobalService } from '../../services/global.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  route: string;
 
   constructor(
     private globalService: GlobalService,
+    private router: Router
   ) { }
 
   ngOnInit() {
+    this.route = this.router.url;
   }
 
   openSideNav() {
