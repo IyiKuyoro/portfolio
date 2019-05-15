@@ -5,9 +5,12 @@
       <div class="image-container">
         <input tabindex="-1" type="file" id="image" formControlName="image" (change)="selectFile($event)">
         <div class="label-container">
-          <label class="image-label" for="image">
+          <label class="image-label" for="image" *ngIf="!image">
             <fa-icon class="upload-icon" [icon]="faUpload"></fa-icon>
           </label>
+          <button class=image-label *ngIf="image" (click)="removeImage()">
+            <fa-icon class="upload-icon" [icon]="faTrashAlt"></fa-icon>
+          </button>
         </div>
         <img [src]="image" *ngIf="image">
       </div>
