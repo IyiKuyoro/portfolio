@@ -1,14 +1,22 @@
 {
   "cSpell.words": [
+    "autolink",
     "buildpacks",
+    "codesample",
     "compat",
     "crossorigin",
+    "dfree",
     "fontawesome",
     "fortawesome",
     "mat",
     "module",
+    "powerpaste",
+    "quickbars",
+    "quicklink",
+    "quicktable",
     "rxjs",
     "sidenav",
+    "tinymce",
     "tslib"
   ],
   "peacock.affectedElements": [

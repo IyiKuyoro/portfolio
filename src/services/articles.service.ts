@@ -3,13 +3,13 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { environment } from '../environments/environment';
 import { Observable } from 'rxjs';
+import { INewArticle } from '../models/IArticle.model';
 
 @Injectable()
 export class ArticlesService {
   constructor(
     private http: HttpClient,
-  ) {
-  }
+  ) {}
 
   getAllArticles(page: number, count: number): Observable<object> {
     const url = `${environment.backendUrl}/articles`;
@@ -26,5 +26,19 @@ export class ArticlesService {
     const url = `${environment.backendUrl}/articles/${slug}`;
 
     return this.http.get(url);
+  }
+
+  postArticle(article: INewArticle) {
+    const url = `${environment.backendUrl}/articles`;
+
+    return this.http.post(
+      url,
+      {
+        title: article.title,
+        authors: article.authors,
+        category: article.category,
+        body: article.body,
+      },
+    );
   }
 }

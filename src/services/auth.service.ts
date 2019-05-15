@@ -16,21 +16,23 @@ export class AuthService {
     });
   }
 
-  authorize() {
+  authorize(token: string) {
     sessionStorage.setItem('authorized', 'true');
+    sessionStorage.setItem('token', token);
   }
 
   deAuthorize() {
-    sessionStorage.setItem('authorized', 'false');
+    sessionStorage.clear();
   }
 
-  checkAuthorization() {
+  checkAuthorization(): string {
     const auth = sessionStorage.getItem('authorized');
 
     if (auth === 'true') {
-      return true;
+      return sessionStorage.getItem('token');
     }
 
-    return false;
+    sessionStorage.clear();
+    return '';
   }
 }
