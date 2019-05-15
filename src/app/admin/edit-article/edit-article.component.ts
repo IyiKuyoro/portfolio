@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { faUpload, } from '@fortawesome/free-solid-svg-icons';
+import { faUpload, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 
 import { ArticlesService } from '../../../services/articles.service';
 import { IApiResponse } from '../../../models/IApiResponse.model';
@@ -18,6 +18,7 @@ export class EditArticleComponent implements OnInit {
     margin: '0 auto'
   };
   faUpload = faUpload;
+  faTrashAlt = faTrashAlt;
   articleForm: FormGroup;
   image: any;
 
@@ -42,6 +43,10 @@ export class EditArticleComponent implements OnInit {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = e => this.image = reader.result;
+  }
+
+  removeImage() {
+    this.image = null;
   }
 
   onSubmit() {
