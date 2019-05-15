@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 import { AuthService } from '../../../src/services/auth.service';
-import { IApiResponse } from '../../../src/models/IApiResponse.model';
+import { IApiResponse, IAuthApiResponse } from '../../../src/models/IApiResponse.model';
 
 @Component({
   selector: 'app-auth',
@@ -36,11 +36,11 @@ export class AuthComponent implements OnInit {
     this.authService.login(
       this.loginForm.controls['username'].value,
       this.loginForm.controls['password'].value,
-    ).subscribe((data: IApiResponse) => {
+    ).subscribe((data: IAuthApiResponse) => {
       loader.style.display = 'none';
 
       if (data.success) {
-        this.authService.authorize();
+        this.authService.authorize(data.data.token);
         this.router.navigate(['/admin/dashboard']);
       } else {
         this.handleError();

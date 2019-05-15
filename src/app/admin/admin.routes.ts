@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { EditArticleComponent } from './dashboard/edit-article/edit-article.component';
+import { EditArticleComponent } from './edit-article/edit-article.component';
 
 export const adminRoutes: Routes = [
   {
