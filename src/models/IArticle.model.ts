@@ -17,4 +17,5 @@ export interface INewArticle {
   authors: string;
   category: string;
   body: string;
+  imageUrl?: string;
 }

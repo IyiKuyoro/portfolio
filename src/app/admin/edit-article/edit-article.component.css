@@ -94,3 +94,13 @@ div, section {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+.progress-bar {
+  height: 5px;
+  width: 100%;
+}
+
+.progress {
+  height: 5px;
+  background-color: rgb(112, 112, 112);
+}

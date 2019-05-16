@@ -31,6 +31,19 @@ export class ArticlesService {
   postArticle(article: INewArticle) {
     const url = `${environment.backendUrl}/articles`;
 
+    if (article.imageUrl) {
+      return this.http.post(
+        url,
+        {
+          title: article.title,
+          authors: article.authors,
+          category: article.category,
+          body: article.body,
+          imageUrl: article.imageUrl,
+        },
+      );
+    }
+
     return this.http.post(
       url,
       {

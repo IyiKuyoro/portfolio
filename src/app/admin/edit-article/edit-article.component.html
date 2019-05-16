@@ -3,6 +3,9 @@
     <app-header></app-header>
     <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
       <div class="image-container">
+        <div class="progress-bar">
+          <div class="progress" [ngStyle]="{width: imageUploadProgress+'%'}"></div>
+        </div>
         <input tabindex="-1" type="file" id="image" formControlName="image" (change)="selectFile($event)">
         <div class="label-container">
           <label class="image-label" for="image" *ngIf="!image">

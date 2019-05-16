@@ -16,6 +16,7 @@ import { GlobalService } from '../../src/services/global.service';
 import { AngularMaterialModule } from './angular-material.module';
 import { SharedModule } from './shared.module';
 import { AuthInterceptor } from '../services/auth.interceptor';
+import { ImageUploadService } from '../services/image-upload.service';
 
 export const cloudinary = {
   Cloudinary: CloudinaryCore
@@ -41,6 +42,7 @@ export const cloudinary = {
     AuthService,
     ArticlesService,
     GlobalService,
+    ImageUploadService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
