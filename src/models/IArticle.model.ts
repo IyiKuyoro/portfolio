@@ -9,4 +9,5 @@ export interface IArticle {
   link?: string;
   body?: string;
   external: boolean;
+  createdAt?: Date;
 }

@@ -54,6 +54,15 @@ div, section {
   padding-bottom: 87px;
 }
 
+.time-past {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #828282;
+}
+
 @media screen and (max-width: 425px) {
   .found h1 {
     font-size: 35px;
