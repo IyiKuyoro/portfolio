@@ -22,6 +22,7 @@ export class MockArticlesService {
           imageUrl: 'image',
           link: null,
           external: false,
+          createdAt: new Date(),
         }, {
           id: 2,
           title: 'title',
@@ -33,6 +34,7 @@ export class MockArticlesService {
           imageUrl: 'image',
           link: null,
           external: false,
+          createdAt: new Date(),
         }]
       }
     });
@@ -51,6 +53,7 @@ export class MockArticlesService {
         body: 'body',
         link: null,
         external: false,
+        createdAt: new Date(),
       }
     });
   }

@@ -5,10 +5,9 @@
       <img *ngIf="article.imageUrl" [src]="article.imageUrl">
       <h1>{{article.title}}</h1>
       <p class="author">By: {{article.authors | authors}}</p>
+      <p class="time-past">{{timePast}}</p>
       <p></p>
-      <p class="article-body">
-        {{article.body}}
-      </p>
+      <p class="article-body" [innerHTML]="article.body"></p>
     </div>
     <div *ngIf="!article" class="not-found flex">
       <h1>404</h1>

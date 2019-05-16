@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import TimePast from 'time_past';
 
 import { IArticle } from '../../../models/IArticle.model';
 import { ArticlesService } from '../../../services/articles.service';
@@ -13,6 +14,7 @@ import { IApiArticleResponse } from '../../../models/IApiArticleResponse.model';
 export class ArticleComponent implements OnInit {
   articleSlug: string;
   article: IArticle;
+  timePast: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,7 +32,7 @@ export class ArticleComponent implements OnInit {
   getArticle() {
     this.articleService.getArticle(this.articleSlug).subscribe((data: IApiArticleResponse) => {
       this.article = data.data;
-      console.log(this.article.imageUrl);
+      this.timePast = TimePast.inWords(data.data.createdAt);
     });
   }
 }
