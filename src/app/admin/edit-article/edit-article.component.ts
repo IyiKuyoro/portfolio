@@ -5,6 +5,8 @@ import { faUpload, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 
 import { ArticlesService } from '../../../services/articles.service';
 import { IApiResponse } from '../../../models/IApiResponse.model';
+import { ImageUploadService } from '../../../services/image-upload.service';
+import { INewArticle } from '../../../models/IArticle.model';
 
 @Component({
   selector: 'app-edit-article',
@@ -21,10 +23,13 @@ export class EditArticleComponent implements OnInit {
   faTrashAlt = faTrashAlt;
   articleForm: FormGroup;
   image: any;
+  imageUploadProgress: number;
+  imageFile: File;
 
   constructor(
     private router: Router,
     private articleService: ArticlesService,
+    private imageUploadService: ImageUploadService,
   ) {
     this.articleForm = new FormGroup({
       'image': new FormControl(null),
@@ -35,14 +40,18 @@ export class EditArticleComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.imageUploadService.uploadProgress.subscribe((p: number) => {
+      this.imageUploadProgress = p;
+    });
   }
 
   selectFile(event) {
-    const file = event.target.files[0];
-
     const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = e => this.image = reader.result;
+    reader.readAsDataURL(event.target.files[0]);
+
+    this.imageUploadService.uploadImage(event.target.files[0], 'iyikuyoro', 'example').subscribe((data: string) => {
+      this.image = data;
+    });
   }
 
   removeImage() {
@@ -50,16 +59,34 @@ export class EditArticleComponent implements OnInit {
   }
 
   onSubmit() {
-    const article = {
-      title: this.articleForm.get('title').value,
-      authors: 'Opeoluwa Iyi-Kuyoro',
-      category: this.articleForm.get('category').value,
-      body: this.articleForm.get('article').value
-    };
+    const validImage = this.articleForm.get('image').value;
+    let article: INewArticle;
 
+    if (validImage) {
+      article = {
+        title: this.articleForm.get('title').value,
+        authors: 'Opeoluwa Iyi-Kuyoro',
+        category: this.articleForm.get('category').value,
+        body: this.articleForm.get('article').value,
+        imageUrl: this.image,
+      };
+    } else {
+      article = {
+        title: this.articleForm.get('title').value,
+        authors: 'Opeoluwa Iyi-Kuyoro',
+        category: this.articleForm.get('category').value,
+        body: this.articleForm.get('article').value,
+      };
+    }
+
+    this.postArticle(article);
+  }
+
+  private postArticle(article: INewArticle) {
     this.articleService.postArticle(article).subscribe((data: IApiResponse) => {
       if (data.success) {
         this.router.navigate(['/']);
+        this.imageUploadService.uploadProgress.unsubscribe();
       }
     });
   }
