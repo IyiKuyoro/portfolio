@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { QuillModule } from 'ngx-quill';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 import { AdminComponent } from './admin/admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -15,11 +15,11 @@ import { CommonModule } from '@angular/common';
   imports: [
     AdminRoutingModule,
     SharedModule,
-    QuillModule,
     ReactiveFormsModule,
     AngularMaterialModule,
     FontAwesomeModule,
     CommonModule,
+    CKEditorModule,
   ],
   exports: [],
   declarations: [

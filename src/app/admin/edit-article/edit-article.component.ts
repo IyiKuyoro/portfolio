@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faUpload, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
+import * as BalloonEditor from '@ckeditor/ckeditor5-build-balloon';
+import { CloudinaryImageUploadAdapter } from 'ckeditor-cloudinary-uploader-adapter';
 
 import { ArticlesService } from '../../../services/articles.service';
 import { IApiResponse } from '../../../models/IApiResponse.model';
@@ -14,17 +16,16 @@ import { INewArticle } from '../../../models/IArticle.model';
   styleUrls: ['./edit-article.component.css']
 })
 export class EditArticleComponent implements OnInit {
-  editorStyle = {
-    height: '100%',
-    maxWidth: '1200px',
-    margin: '0 auto'
+  Editor = BalloonEditor;
+  editorConfig = {
+    placeholder: 'Type the content here!',
+    extraPlugins: [ this.imagePluginFactory ],
   };
   faUpload = faUpload;
   faTrashAlt = faTrashAlt;
   articleForm: FormGroup;
   image: any;
   imageUploadProgress: number;
-  imageFile: File;
 
   constructor(
     private router: Router,
@@ -37,6 +38,12 @@ export class EditArticleComponent implements OnInit {
       'article': new FormControl('', Validators.required),
       'category': new FormControl('tech', Validators.required),
     });
+  }
+
+  imagePluginFactory(editor) {
+    editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
+      return new CloudinaryImageUploadAdapter( loader, 'iyikuyoro', 'example', [ 160, 500, 1000, 1052 ]);
+    };
   }
 
   ngOnInit() {
