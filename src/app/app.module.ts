@@ -5,7 +5,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import { Cloudinary as CloudinaryCore } from 'cloudinary-core';
-import { QuillModule } from 'ngx-quill';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -36,7 +35,6 @@ export const cloudinary = {
     HttpClientModule,
     ReactiveFormsModule,
     SharedModule,
-    QuillModule,
   ],
   providers: [
     AuthService,

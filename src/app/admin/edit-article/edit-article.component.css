@@ -19,6 +19,7 @@ div, section {
 .title {
   border: none;
   font-size: 35px;
+  font-family: "Times New Roman";
   width: 100%;
   max-width: 1200px;
   text-align: center;
@@ -103,4 +104,16 @@ div, section {
 .progress {
   height: 5px;
   background-color: rgb(112, 112, 112);
+}
+
+.editor-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+:host ::ng-deep .ck-editor__editable {
+  text-align: left;
+  font-size: 25px;
+  font-family: "Times New Roman";
+  padding: 0;
 }

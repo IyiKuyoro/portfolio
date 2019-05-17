@@ -21,7 +21,7 @@ export class ImageUploadService {
     });
 
     xhr.onreadystatechange = (event) => {
-      if (xhr.readyState == 4 && xhr.status == 200) {
+      if (xhr.readyState === 4 && xhr.status === 200) {
         const response = JSON.parse(xhr.responseText);
         const cloudImageUrl = response.secure_url;
 
