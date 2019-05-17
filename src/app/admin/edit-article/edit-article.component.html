@@ -18,7 +18,9 @@
         <img [src]="image" *ngIf="image">
       </div>
       <input type="text" placeholder="Title" class="title" formControlName="title">
-      <quill-editor [styles]="editorStyle" formControlName="article"></quill-editor>
+      <div class="editor-container">
+        <ckeditor class="editor" [config]="editorConfig" [editor]="Editor" data="" formControlName="article"></ckeditor>
+      </div>
       <div class="btn-group">
         <mat-radio-group class='categories' formControlName="category">
           <mat-radio-button class="rad-btn" value="tech">Tech</mat-radio-button>
