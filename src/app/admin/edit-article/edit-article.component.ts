@@ -18,7 +18,6 @@ import { INewArticle } from '../../../models/IArticle.model';
 export class EditArticleComponent implements OnInit {
   Editor = BalloonEditor;
   editorConfig = {
-    placeholder: 'Type the content here!',
     extraPlugins: [ this.imagePluginFactory ],
   };
   faUpload = faUpload;
