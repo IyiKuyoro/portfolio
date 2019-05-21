@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { faUpload, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 import * as BalloonEditor from '@ckeditor/ckeditor5-build-balloon';
 import { CloudinaryImageUploadAdapter } from 'ckeditor-cloudinary-uploader-adapter';
 
 import { ArticlesService } from '../../../services/articles.service';
-import { IApiResponse } from '../../../models/IApiResponse.model';
+import { IApiResponse, INewArticleApiResponse } from '../../../models/IApiResponse.model';
 import { ImageUploadService } from '../../../services/image-upload.service';
-import { INewArticle } from '../../../models/IArticle.model';
+import { INewArticle, IArticle } from '../../../models/IArticle.model';
 
 @Component({
   selector: 'app-edit-article',
@@ -20,6 +20,7 @@ export class EditArticleComponent implements OnInit {
   editorConfig = {
     extraPlugins: [ this.imagePluginFactory ],
   };
+  toEdit = false;
   faUpload = faUpload;
   faTrashAlt = faTrashAlt;
   articleForm: FormGroup;
@@ -27,15 +28,23 @@ export class EditArticleComponent implements OnInit {
   imageUploadProgress: number;
 
   constructor(
+    private route: ActivatedRoute,
     private router: Router,
     private articleService: ArticlesService,
     private imageUploadService: ImageUploadService,
   ) {
+    let article: IArticle;
+    if (this.route.snapshot.url[0].path === 'edit-article') {
+      article = this.route.snapshot.data['resolvedData'].article;
+      this.image = article.imageUrl;
+      this.toEdit = true;
+    }
+
     this.articleForm = new FormGroup({
       'image': new FormControl(null),
-      'title': new FormControl('', Validators.required),
-      'article': new FormControl('', Validators.required),
-      'category': new FormControl('tech', Validators.required),
+      'title': new FormControl( article ? article.title : '', Validators.required),
+      'article': new FormControl( article ? article.body : '', Validators.required),
+      'category': new FormControl( article ? article.category : 'tech', Validators.required),
     });
   }
 
@@ -64,7 +73,7 @@ export class EditArticleComponent implements OnInit {
     this.image = null;
   }
 
-  onSubmit() {
+  onSubmit(update = false) {
     const validImage = this.articleForm.get('image').value;
     let article: INewArticle;
 
@@ -85,15 +94,28 @@ export class EditArticleComponent implements OnInit {
       };
     }
 
-    this.postArticle(article);
+    if (update) {
+      this.updateArticle(article);
+    } else {
+      this.postArticle(article);
+    }
   }
 
   private postArticle(article: INewArticle) {
-    this.articleService.postArticle(article).subscribe((data: IApiResponse) => {
+    this.articleService.postArticle(article).subscribe((data: INewArticleApiResponse) => {
       if (data.success) {
-        this.router.navigate(['/']);
+        this.router.navigate(['/article', data.data.slug]);
         this.imageUploadService.uploadProgress.unsubscribe();
       }
     });
+  }
+
+  private updateArticle(article: INewArticle) {
+    this.articleService.updateArticle(article, this.route.snapshot.paramMap.get('slug'))
+      .subscribe((data: IApiResponse) => {
+        if (data.success) {
+          this.router.navigate(['/article', this.route.snapshot.paramMap.get('slug')]);
+        }
+      });
   }
 }

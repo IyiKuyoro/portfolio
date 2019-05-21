@@ -35,7 +35,7 @@ export class ArticlesGroupComponent {
       if (article.category === 'tech' && noOfTechArticles < 10) {
         noOfTechArticles += 1;
         this.techArticles.push(article);
-      } else if (article.category === 'inspirational' && noOfOtherArticles < 10) {
+      } else if (article.category !== 'tech' && noOfOtherArticles < 10) {
         noOfOtherArticles += 1;
         this.otherArticles.push(article);
       }

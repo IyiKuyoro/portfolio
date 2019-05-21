@@ -19,3 +19,8 @@ export interface INewArticle {
   body: string;
   imageUrl?: string;
 }
+
+export interface IArticleResolved {
+  article: IArticle;
+  error?: any;
+}

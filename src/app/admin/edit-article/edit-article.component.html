@@ -1,7 +1,7 @@
 <div class="body">
   <div class="content-inside">
     <app-header></app-header>
-    <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="articleForm">
       <div class="image-container">
         <div class="progress-bar">
           <div class="progress" [ngStyle]="{width: imageUploadProgress+'%'}"></div>
@@ -24,12 +24,21 @@
       <div class="btn-group">
         <mat-radio-group class='categories' formControlName="category">
           <mat-radio-button class="rad-btn" value="tech">Tech</mat-radio-button>
+          <mat-radio-button class="rad-btn" value="inspirational">Inspirational</mat-radio-button>
           <mat-radio-button class="rad-btn" value="others">Others</mat-radio-button>
         </mat-radio-group>
         <button
+          *ngIf="!toEdit"
           class="submit-btn"
           [disabled]="!articleForm.valid"
+          (click)="onSubmit()"
         >Submit</button>
+        <button
+          *ngIf="toEdit"
+          class="submit-btn"
+          [disabled]="!articleForm.valid"
+          (click)="onSubmit(true)"
+        >Update</button>
       </div>
     </form>
   </div>
