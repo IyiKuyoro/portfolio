@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import TimePast from 'time_past';
 
 import { IArticle } from '../../../models/IArticle.model';
 import { ArticlesService } from '../../../services/articles.service';
 import { IApiArticleResponse } from '../../../models/IApiArticleResponse.model';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-article',
@@ -18,21 +19,20 @@ export class ArticleComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private articleService: ArticlesService,
-  ) { }
-
-  ngOnInit() {
-    this.route.paramMap.subscribe((params) => {
-      this.articleSlug = params.get('slug');
-    });
-
-    this.getArticle();
+    private authService: AuthService,
+    private router: Router,
+  ) {
+    this.article = this.route.snapshot.data['resolvedData'].article;
   }
 
-  getArticle() {
-    this.articleService.getArticle(this.articleSlug).subscribe((data: IApiArticleResponse) => {
-      this.article = data.data;
-      this.timePast = TimePast.inWords(data.data.createdAt);
-    });
+  ngOnInit() {
+  }
+
+  isAdmin() {
+    return !!this.authService.checkAuthorization();
+  }
+
+  editArticle() {
+    this.router.navigate(['/admin/edit-article', this.article.slug]);
   }
 }

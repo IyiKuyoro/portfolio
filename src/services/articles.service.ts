@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { environment } from '../environments/environment';
-import { Observable } from 'rxjs';
 import { INewArticle } from '../models/IArticle.model';
+import { IApiArticleResponse } from '../models/IApiArticleResponse.model';
 
 @Injectable()
 export class ArticlesService {
@@ -22,10 +24,13 @@ export class ArticlesService {
     return this.http.get(url, { params });
   }
 
-  getArticle(slug: string): Observable<object> {
+  getArticle(slug: string): Observable<IApiArticleResponse> {
     const url = `${environment.backendUrl}/articles/${slug}`;
 
-    return this.http.get(url);
+    return this.http.get<IApiArticleResponse>(url)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   postArticle(article: INewArticle) {
@@ -53,5 +58,37 @@ export class ArticlesService {
         body: article.body,
       },
     );
+  }
+
+  updateArticle(article: INewArticle, slug: string) {
+    const url = `${environment.backendUrl}/articles/${slug}`;
+
+    if (article.imageUrl) {
+      return this.http.put(
+        url,
+        {
+          title: article.title,
+          authors: article.authors,
+          category: article.category,
+          body: article.body,
+          imageUrl: article.imageUrl,
+        },
+      );
+    }
+
+    return this.http.put(
+      url,
+      {
+        title: article.title,
+        authors: article.authors,
+        category: article.category,
+        body: article.body,
+      },
+    );
+  }
+
+  handleError(error: HttpErrorResponse) {
+    console.log(error.message);
+    return throwError(error.message);
   }
 }

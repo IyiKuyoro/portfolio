@@ -1,3 +1,5 @@
+import { IArticle } from './IArticle.model';
+
 export interface IApiResponse {
   success: boolean;
   message: string;
@@ -15,5 +17,12 @@ export interface IAuthApiResponse {
     email: string;
     token: string;
   };
+  possibleCauses?: string[];
+}
+
+export interface INewArticleApiResponse {
+  success: boolean;
+  message: string;
+  data?: IArticle;
   possibleCauses?: string[];
 }
