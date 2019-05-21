@@ -12,6 +12,7 @@ import { ArticleComponent } from './article/article.component';
 import { AuthorsPipe } from '../../pipes/authors.pipe';
 import { AngularMaterialModule } from '../angular-material.module';
 import { SharedModule } from '../shared.module';
+import { TimePastPipe } from '../../pipes/timepast.pipe';
 
 export const cloudinary = {
   Cloudinary: CloudinaryCore
@@ -33,6 +34,7 @@ export const cloudinary = {
     TruncatePipe,
     AuthorsPipe,
     ArticleComponent,
+    TimePastPipe,
   ],
   providers: [],
 })
