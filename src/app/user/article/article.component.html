@@ -3,6 +3,9 @@
     <app-header></app-header>
     <div *ngIf="article" class="found">
       <img *ngIf="article.imageUrl" [src]="article.imageUrl">
+      <div class="edit_container" [ngClass]="{edit_disabled: !isAdmin()}">
+        <button class="edit-btn" (click)="editArticle()">Edit</button>
+      </div>
       <h1>{{article.title}}</h1>
       <p class="author">By: {{article.authors | authors}}</p>
       <p class="time-past">{{timePast}}</p>
