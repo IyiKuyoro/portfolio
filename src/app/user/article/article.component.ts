@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import TimePast from 'time_past';
 
 import { IArticle } from '../../../models/IArticle.model';
-import { ArticlesService } from '../../../services/articles.service';
-import { IApiArticleResponse } from '../../../models/IApiArticleResponse.model';
 import { AuthService } from '../../../services/auth.service';
 
 @Component({
@@ -15,7 +12,6 @@ import { AuthService } from '../../../services/auth.service';
 export class ArticleComponent implements OnInit {
   articleSlug: string;
   article: IArticle;
-  timePast: string;
 
   constructor(
     private route: ActivatedRoute,
