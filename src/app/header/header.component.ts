@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../../services/global.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { AddArticleComponent } from '../admin/add-article/add-article.component';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +14,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private globalService: GlobalService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit() {
@@ -21,5 +24,11 @@ export class HeaderComponent implements OnInit {
 
   openSideNav() {
     this.globalService.changeSideNav(true);
+  }
+
+  openAddArticleModal() {
+    this.dialog.open(AddArticleComponent, {
+      width: '820px',
+    });
   }
 }

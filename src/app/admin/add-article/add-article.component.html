@@ -1,0 +1,44 @@
+<h1>Add an External Article</h1>
+<form [formGroup]="articleForm" class="flex">
+  <div>
+    <p
+      [ngClass]="{error: !articleForm.get('title').valid && articleForm.get('title').touched}"
+    >Please provide a title</p>
+    <input
+      type="text" placeholder="Title"
+      formControlName="title"
+      [ngClass]="{input_error: !articleForm.get('title').valid && articleForm.get('title').touched}"
+    />
+  </div>
+  <div>
+    <p
+      [ngClass]="{error: !articleForm.get('link').valid && articleForm.get('link').touched}"
+    >Please provide a valid link</p>
+    <input
+      type="text" placeholder="Link"
+      formControlName="link"
+      [ngClass]="{input_error: !articleForm.get('link').valid && articleForm.get('link').touched}"
+    />
+  </div>
+  <div>
+    <img [src]="image" *ngIf="image"/>
+    <input tabindex="-1" id="image"
+      type="file" placeholder="ImageUrl"
+      (change)="selectFile($event)"
+    />
+    <div class="progress-bar">
+      <div class="progress" [ngStyle]="{width: imageUploadProgress+'%'}"></div>
+    </div>
+    <label class="flex" role="input" for="image">
+      Upload Cover Image
+    </label>
+  </div>
+  <p>Please select a category</p>
+  <mat-radio-group class="article-cat" formControlName="category">
+    <mat-radio-button class="radio" value="tech">Tech</mat-radio-button>
+    <mat-radio-button class="radio" value="inspirational">Inspirational</mat-radio-button>
+    <mat-radio-button class="radio" value="others">Others</mat-radio-button>
+  </mat-radio-group>
+  <button type="submit" (click)="onSubmit()"
+  >Submit as Others</button>
+</form>

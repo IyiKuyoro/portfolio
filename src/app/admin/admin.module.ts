@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from '../angular-material.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CommonModule } from '@angular/common';
+import { AddArticleComponent } from './add-article/add-article.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { CommonModule } from '@angular/common';
     AdminComponent,
     DashboardComponent,
     EditArticleComponent,
+    AddArticleComponent,
   ],
   providers: [],
 })

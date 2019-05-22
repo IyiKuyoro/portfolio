@@ -1,4 +1,4 @@
-import { IArticle } from './IArticle.model';
+import { IArticle } from './Article.model';
 
 export interface IGetArticleResponse {
   success: boolean;
