@@ -8,7 +8,7 @@ import { CloudinaryImageUploadAdapter } from 'ckeditor-cloudinary-uploader-adapt
 import { ArticlesService } from '../../../services/articles.service';
 import { IApiResponse, INewArticleApiResponse } from '../../../models/IApiResponse.model';
 import { ImageUploadService } from '../../../services/image-upload.service';
-import { INewArticle, IArticle } from '../../../models/IArticle.model';
+import { INewArticle, IArticle } from '../../../models/Article.model';
 
 @Component({
   selector: 'app-edit-article',

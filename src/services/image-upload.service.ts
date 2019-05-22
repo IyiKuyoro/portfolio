@@ -16,7 +16,10 @@ export class ImageUploadService {
     xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
     xhr.upload.addEventListener('progress', (e) => {
-      const progress = Math.round((e.loaded * 100) / e.total);
+      let progress = Math.round((e.loaded * 100) / e.total);
+      if (progress === 100) {
+        progress = 0;
+      }
       this.uploadProgress.next(progress);
     });
 

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ArticlesService } from '../../../services/articles.service';
-import { IArticle } from '../../../models/IArticle.model';
+import { IArticle } from '../../../models/Article.model';
 import { IGetArticleResponse } from '../../../models/IGetArticleResponse.model';
 
 @Component({

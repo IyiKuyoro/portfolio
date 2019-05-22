@@ -16,6 +16,8 @@ import { AngularMaterialModule } from './angular-material.module';
 import { SharedModule } from './shared.module';
 import { AuthInterceptor } from '../services/auth.interceptor';
 import { ImageUploadService } from '../services/image-upload.service';
+import { AddArticleComponent } from './admin/add-article/add-article.component';
+import { AdminModule } from './admin/admin.module';
 
 export const cloudinary = {
   Cloudinary: CloudinaryCore
@@ -35,6 +37,7 @@ export const cloudinary = {
     HttpClientModule,
     ReactiveFormsModule,
     SharedModule,
+    AdminModule,
   ],
   providers: [
     AuthService,
@@ -46,6 +49,9 @@ export const cloudinary = {
       useClass: AuthInterceptor,
       multi: true,
     }
+  ],
+  entryComponents: [
+    AddArticleComponent,
   ],
   bootstrap: [AppComponent]
 })

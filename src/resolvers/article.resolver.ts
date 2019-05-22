@@ -3,7 +3,7 @@ import { Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/r
 
 import { Observable } from 'rxjs';
 import { ArticlesService } from '../services/articles.service';
-import { IArticleResolved } from '../models/IArticle.model';
+import { IArticleResolved } from '../models/Article.model';
 import { catchError, map } from 'rxjs/operators';
 
 @Injectable({

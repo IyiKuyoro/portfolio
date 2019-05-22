@@ -24,3 +24,22 @@ export interface IArticleResolved {
   article: IArticle;
   error?: any;
 }
+
+export class NewExternalArticle {
+  title: string;
+  link: string;
+  category: string;
+  imageUrl?: string;
+
+  constructor(
+    title: string, link: string, category: string, imageUrl?: string
+  ) {
+    this.title = title;
+    this.link = link;
+    this.category = category;
+
+    if (imageUrl) {
+      this.imageUrl = imageUrl;
+    }
+  }
+}

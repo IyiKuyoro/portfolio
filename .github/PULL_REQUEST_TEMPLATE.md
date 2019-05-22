@@ -1,11 +1,11 @@
-#### What does this PR do?
+# What does this PR do?
 
-#### Description of Task to be completed?
+## Description of Task to be completed?
 
-#### How should this be manually tested?
+## How should this be manually tested?
 
-#### What are the relevant pivotal tracker stories?
+- Clone the repo and checkout this branch
 
-#### Any background context you want to add?
+- Setup all env variables and dependencies
 
-#### Screenshots
+## What are the relevant pivotal tracker stories?
