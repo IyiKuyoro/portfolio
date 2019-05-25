@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import * as BalloonEditor from '@ckeditor/ckeditor5-build-balloon';
+
 import { IArticle } from '../../../models/Article.model';
 import { AuthService } from '../../../services/auth.service';
 
@@ -12,6 +14,7 @@ import { AuthService } from '../../../services/auth.service';
 export class ArticleComponent implements OnInit {
   articleSlug: string;
   article: IArticle;
+  Editor = BalloonEditor;
 
   constructor(
     private route: ActivatedRoute,

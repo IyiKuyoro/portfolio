@@ -62,6 +62,7 @@ div, section {
   line-height: 19px;
   text-align: center;
   color: #828282;
+  margin-bottom: 0;
 }
 
 .edit-btn {

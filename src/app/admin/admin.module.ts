@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
+import { SharedModule } from '../shared.module';
 import { AdminComponent } from './admin/admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminRoutingModule } from './admin-routing.module';
-import { SharedModule } from '../shared.module';
 import { EditArticleComponent } from './edit-article/edit-article.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from '../angular-material.module';
@@ -20,7 +19,7 @@ import { AddArticleComponent } from './add-article/add-article.component';
     AngularMaterialModule,
     FontAwesomeModule,
     CommonModule,
-    CKEditorModule,
+    SharedModule,
   ],
   exports: [],
   declarations: [
