@@ -1,1 +1,38 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container (backdropClick)="closeSideNav()">
+  <mat-sidenav #sidenav (keydown.escape)="closeSideNav()" disableClose>
+    <div class="fit flex stack">
+        <cl-image class="lang" public-id="portfolio assets/1200px-Unofficial_JavaScript_logo_2.svg.png" >
+          <cl-transformation width="40" crop="scale">
+          </cl-transformation>
+        </cl-image>
+        <cl-image class="lang" public-id="portfolio assets/1_mn6bOs7s6Qbao15PMNRyOA.png" >
+          <cl-transformation width="40" crop="scale">
+          </cl-transformation>
+        </cl-image>
+        <cl-image class="lang" public-id="portfolio assets/C-Sharp-Logo.gif" >
+          <cl-transformation height="40" width="40" crop="scale">
+          </cl-transformation>
+        </cl-image>
+        <cl-image class="lang" public-id="portfolio assets/Angular_full_color_logo.svg.png" >
+          <cl-transformation height="40" width="40" crop="scale">
+          </cl-transformation>
+        </cl-image>
+    </div>
+    <mat-nav-list>
+      <a matLine class="side-nav-link" [routerLink]="['']" [routerLinkActive]="['is-active']" (click)="closeSideNav()">
+        Home
+      </a>
+      <a matLine class="side-nav-link" *ngIf="isAuthenticated()" (click)="addArticle()">
+        <fa-icon [icon]="faFeather"></fa-icon>
+        Add Article
+      </a>
+      <a matLine class="side-nav-link" *ngIf="isAuthenticated()"  [routerLink]="['/admin/new-article']"  [routerLinkActive]="['is-active']" (click)="closeSideNav()">
+        <fa-icon [icon]="faPlus"></fa-icon>
+        Write Article
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

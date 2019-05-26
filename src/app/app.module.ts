@@ -1,17 +1,23 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import { Cloudinary as CloudinaryCore } from 'cloudinary-core';
 
-import { AngularMaterialModule } from './angular-material.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ArticlesGroupComponent } from './home/articles-group/articles-group.component';
 import { ArticlesService } from '../../src/services/articles.service';
-import { HomeComponent } from './home/home.component';
-import { HttpClientModule } from '@angular/common/http';
-import { TruncatePipe } from '../pipes/truncate.pipe';
+import { AuthService } from '../../src/services/auth.service';
+import { AuthComponent } from './auth/auth.component';
+import { GlobalService } from '../../src/services/global.service';
+import { AngularMaterialModule } from './angular-material.module';
+import { SharedModule } from './shared.module';
+import { AuthInterceptor } from '../services/auth.interceptor';
+import { ImageUploadService } from '../services/image-upload.service';
+import { AddArticleComponent } from './admin/add-article/add-article.component';
+import { AdminModule } from './admin/admin.module';
 
 export const cloudinary = {
   Cloudinary: CloudinaryCore
@@ -20,20 +26,32 @@ export const cloudinary = {
 @NgModule({
   declarations: [
     AppComponent,
-    ArticlesGroupComponent,
-    HomeComponent,
-    TruncatePipe
+    AuthComponent,
   ],
   imports: [
-    AngularMaterialModule,
     AppRoutingModule,
+    AngularMaterialModule,
     BrowserAnimationsModule,
-    BrowserModule,
     CloudinaryModule.forRoot(cloudinary, { cloud_name: 'iyikuyoro'}),
-    HttpClientModule
+    FontAwesomeModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    SharedModule,
+    AdminModule,
   ],
   providers: [
-    ArticlesService
+    AuthService,
+    ArticlesService,
+    GlobalService,
+    ImageUploadService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    }
+  ],
+  entryComponents: [
+    AddArticleComponent,
   ],
   bootstrap: [AppComponent]
 })

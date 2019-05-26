@@ -1,0 +1,24 @@
+footer {
+  height: 87px;
+  background-color: #D8D8D8;
+}
+
+.social {
+  height: 87px;
+  justify-content: center;
+}
+
+.social a {
+  margin: 0 5px;
+}
+
+.social-link {
+  color: black;
+  font-size: 20px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+

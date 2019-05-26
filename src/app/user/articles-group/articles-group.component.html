@@ -1,0 +1,28 @@
+<div aria-label="articles" class="articles-region">
+  <div class="articles-padding">
+    <h2 *ngIf="otherArticles.length > 0" class="category-header">Inspirational</h2>
+    <div *ngIf="otherArticles.length > 0" class="articles-group">
+      <a
+        *ngFor="let article of otherArticles"
+        class="article-card"
+        [clBackgroundImage]="article.imageUrl || 'https://res.cloudinary.com/iyikuyoro/image/upload/v1551336637/portfolio%20assets/patrick-fore-381200-unsplash.jpg'"
+        (click)="selectArticle(article)"
+      >
+        <div class="article-card-title">{{article.title | truncate:"40"}}</div>
+        <fa-icon *ngIf="isAuthorized()" [icon]="faTrash" class="delete" (click)="onDelete(article.slug, 'others', otherArticles.indexOf(article), $event)"></fa-icon>
+      </a>
+    </div>
+    <h2 *ngIf="techArticles.length > 0" class="category-header">Technical</h2>
+    <div *ngIf="techArticles.length > 0" class="articles-group flex">
+      <a
+        *ngFor="let article of techArticles"
+        class="flex article-card"
+        [clBackgroundImage]="article.imageUrl || 'https://res.cloudinary.com/iyikuyoro/image/upload/v1551336637/portfolio%20assets/patrick-fore-381200-unsplash.jpg'"
+        (click)="selectArticle(article)"
+      >
+        <div class="article-card-title">{{article.title | truncate:"40"}}</div>
+        <fa-icon *ngIf="isAuthorized()" [icon]="faTrash" class="delete" (click)="onDelete(article.slug, 'tech', otherArticles.indexOf(article), $event)"></fa-icon>
+      </a>
+    </div>
+  </div>
+</div>

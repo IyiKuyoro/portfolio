@@ -1,0 +1,46 @@
+<div class="body">
+  <div class="content-inside">
+    <app-header></app-header>
+    <form [formGroup]="articleForm">
+      <div class="image-container">
+        <div class="progress-bar">
+          <div class="progress" [ngStyle]="{width: imageUploadProgress+'%'}"></div>
+        </div>
+        <input tabindex="-1" type="file" id="image" formControlName="image" (change)="selectFile($event)">
+        <div class="label-container">
+          <label class="image-label" for="image" *ngIf="!image">
+            <fa-icon class="upload-icon" [icon]="faUpload"></fa-icon>
+          </label>
+          <button class=image-label *ngIf="image" (click)="removeImage()">
+            <fa-icon class="upload-icon" [icon]="faTrashAlt"></fa-icon>
+          </button>
+        </div>
+        <img [src]="image" *ngIf="image">
+      </div>
+      <input type="text" placeholder="Title" class="title" formControlName="title">
+      <div class="editor-container">
+        <ckeditor class="editor" [config]="editorConfig" [editor]="Editor" data="" formControlName="article"></ckeditor>
+      </div>
+      <div class="btn-group">
+        <mat-radio-group class='categories' formControlName="category">
+          <mat-radio-button class="rad-btn" value="tech">Tech</mat-radio-button>
+          <mat-radio-button class="rad-btn" value="inspirational">Inspirational</mat-radio-button>
+          <mat-radio-button class="rad-btn" value="others">Others</mat-radio-button>
+        </mat-radio-group>
+        <button
+          *ngIf="!toEdit"
+          class="submit-btn"
+          [disabled]="!articleForm.valid"
+          (click)="onSubmit()"
+        >Submit</button>
+        <button
+          *ngIf="toEdit"
+          class="submit-btn"
+          [disabled]="!articleForm.valid"
+          (click)="onSubmit(true)"
+        >Update</button>
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>
