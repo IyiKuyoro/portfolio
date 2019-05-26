@@ -6,6 +6,6 @@ export class ImageHelper {
     const reader = new FileReader();
     reader.readAsDataURL(file);
 
-    return uploadService.uploadImage(file, 'iyikuyoro', 'example');
+    return uploadService.uploadImage(file, 'iyikuyoro', 'portfolio');
   }
 }

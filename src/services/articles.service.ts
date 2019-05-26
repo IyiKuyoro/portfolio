@@ -120,6 +120,14 @@ export class ArticlesService {
     );
   }
 
+  deleteArticle(slug: string) {
+    const url = `${environment.backendUrl}/articles/${slug}`;
+
+    return this.http.delete(
+      url
+    );
+  }
+
   handleError(error: HttpErrorResponse) {
     console.log(error.message);
     return throwError(error.message);

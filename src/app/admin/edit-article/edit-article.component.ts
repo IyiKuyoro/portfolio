@@ -50,7 +50,7 @@ export class EditArticleComponent implements OnInit {
 
   imagePluginFactory(editor) {
     editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
-      return new CloudinaryImageUploadAdapter( loader, 'iyikuyoro', 'example', [ 160, 500, 1000, 1052 ]);
+      return new CloudinaryImageUploadAdapter( loader, 'iyikuyoro', 'portfolio', [ 160, 500, 1000, 1052 ]);
     };
   }
 
@@ -64,7 +64,7 @@ export class EditArticleComponent implements OnInit {
     const reader = new FileReader();
     reader.readAsDataURL(event.target.files[0]);
 
-    this.imageUploadService.uploadImage(event.target.files[0], 'iyikuyoro', 'example').subscribe((data: string) => {
+    this.imageUploadService.uploadImage(event.target.files[0], 'iyikuyoro', 'portfolio').subscribe((data: string) => {
       this.image = data;
     });
   }

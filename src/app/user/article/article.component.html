@@ -9,7 +9,9 @@
       <h1>{{article.title}}</h1>
       <p class="author">By: {{article.authors | authors}}</p>
       <p class="time-past">{{article.createdAt | timepast}}</p>
-      <ckeditor class="article-body" disabled="true" [editor]="Editor" [data]="article.body"></ckeditor>
+      <div class="editor-container">
+        <ckeditor class="article-body" disabled="true" [editor]="Editor" [data]="article.body"></ckeditor>
+      </div>
     </div>
     <div *ngIf="!article" class="not-found flex">
       <h1>404</h1>

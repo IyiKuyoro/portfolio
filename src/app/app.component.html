@@ -19,9 +19,16 @@
         </cl-image>
     </div>
     <mat-nav-list>
-      <a matLine class="side-nav-link" [routerLink]="['']" [routerLinkActive]="['is-active']">
-        <mat-icon svgIcon="doc" matListIcon></mat-icon>
-        Résumé
+      <a matLine class="side-nav-link" [routerLink]="['']" [routerLinkActive]="['is-active']" (click)="closeSideNav()">
+        Home
+      </a>
+      <a matLine class="side-nav-link" *ngIf="isAuthenticated()" (click)="addArticle()">
+        <fa-icon [icon]="faFeather"></fa-icon>
+        Add Article
+      </a>
+      <a matLine class="side-nav-link" *ngIf="isAuthenticated()"  [routerLink]="['/admin/new-article']"  [routerLinkActive]="['is-active']" (click)="closeSideNav()">
+        <fa-icon [icon]="faPlus"></fa-icon>
+        Write Article
       </a>
     </mat-nav-list>
   </mat-sidenav>

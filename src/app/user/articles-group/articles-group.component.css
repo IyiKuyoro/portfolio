@@ -2,6 +2,16 @@ a {
   text-decoration: none;
 }
 
+.delete {
+  font-size: 20px;
+  text-align: right;
+  margin: 5px;
+}
+
+.delete:hover {
+  color: red;
+}
+
 .articles-region {
   display: flex;
   width: 100%;
@@ -35,6 +45,7 @@ a {
   background-position: center;
   border-radius: 5px;
   flex-direction: column-reverse;
+  justify-content: space-between;
   margin: 0 20px;
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.2);
 }

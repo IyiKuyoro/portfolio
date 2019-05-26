@@ -9,6 +9,7 @@
         (click)="selectArticle(article)"
       >
         <div class="article-card-title">{{article.title | truncate:"40"}}</div>
+        <fa-icon *ngIf="isAuthorized()" [icon]="faTrash" class="delete" (click)="onDelete(article.slug, 'others', otherArticles.indexOf(article), $event)"></fa-icon>
       </a>
     </div>
     <h2 *ngIf="techArticles.length > 0" class="category-header">Technical</h2>
@@ -20,6 +21,7 @@
         (click)="selectArticle(article)"
       >
         <div class="article-card-title">{{article.title | truncate:"40"}}</div>
+        <fa-icon *ngIf="isAuthorized()" [icon]="faTrash" class="delete" (click)="onDelete(article.slug, 'tech', otherArticles.indexOf(article), $event)"></fa-icon>
       </a>
     </div>
   </div>

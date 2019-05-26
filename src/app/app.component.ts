@@ -1,7 +1,11 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { MatSidenav, MatIconRegistry } from '@angular/material';
+import { MatSidenav, MatIconRegistry, MatDialog } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
+import { faFeather, faPlus } from '@fortawesome/free-solid-svg-icons';
+
 import { GlobalService } from '../../src/services/global.service';
+import { AuthService } from '../../src/services/auth.service';
+import { AddArticleComponent } from './admin/add-article/add-article.component';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +14,15 @@ import { GlobalService } from '../../src/services/global.service';
 })
 export class AppComponent implements OnInit {
   @ViewChild('sidenav') sidenav: MatSidenav;
+  public faFeather = faFeather;
+  public faPlus = faPlus;
 
   constructor(
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
     private globalService: GlobalService,
+    private authService: AuthService,
+    private dialog: MatDialog,
   ) {
     this.matIconRegistry.addSvgIcon(
       'doc',
@@ -34,5 +42,14 @@ export class AppComponent implements OnInit {
 
   closeSideNav() {
     this.globalService.changeSideNav(false);
+  }
+
+  isAuthenticated() {
+    return this.authService.checkAuthorization();
+  }
+
+  addArticle() {
+    this.closeSideNav();
+    this.dialog.open(AddArticleComponent);
   }
 }

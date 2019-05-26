@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  backendUrl: 'https://iyikuyoro-staging.herokuapp.com/api/v1',
+  backendUrl: 'http://localhost:4000/api/v1',
 };

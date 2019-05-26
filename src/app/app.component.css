@@ -46,6 +46,27 @@ div, section {
   font-weight: bolder;
 }
 
+mat-nav-list {
+  display: flex;
+  flex-direction: column;
+}
+
+fa-icon {
+  margin-right: 5px;
+}
+
+a {
+  margin: 10px;
+  height: 55px;
+  display: flex;
+  border-radius: 5px;
+  align-items: center;
+}
+
+a:hover {
+  background-color: #C4C4C4;
+}
+
 mat-sidenav {
   height: 100vh;
   position: fixed;
