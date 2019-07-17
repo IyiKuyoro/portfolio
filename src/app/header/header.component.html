@@ -1,30 +1,32 @@
 <header class="flex">
   <div class="flex padding">
-    <img class="logo" src="https://res.cloudinary.com/iyikuyoro/image/upload/v1550737464/portfolio%20assets/IMG_8579.jpg">
-    <div class="flex big-screen-nav">
-      <div class="flex stack header-stack">
-          <cl-image class="lang" public-id="portfolio assets/1200px-Unofficial_JavaScript_logo_2.svg.png" >
-            <cl-transformation width="40" crop="scale">
-            </cl-transformation>
-          </cl-image>
-          <cl-image class="lang" public-id="portfolio assets/1_mn6bOs7s6Qbao15PMNRyOA.png" >
-            <cl-transformation width="40" crop="scale">
-            </cl-transformation>
-          </cl-image>
-          <cl-image class="lang" public-id="portfolio assets/C-Sharp-Logo.gif" >
-            <cl-transformation height="40" width="40" crop="scale">
-            </cl-transformation>
-          </cl-image>
-          <cl-image class="lang" public-id="portfolio assets/Angular_full_color_logo.svg.png" >
-            <cl-transformation height="40" width="40" crop="scale">
-            </cl-transformation>
-          </cl-image>
+    <div class="logo-container">
+      <img class="logo" src="https://res.cloudinary.com/iyikuyoro/image/upload/v1550737464/portfolio%20assets/IMG_8579.jpg">
+      <div class="stack header-stack">
+        <cl-image class="lang" public-id="portfolio assets/1200px-Unofficial_JavaScript_logo_2.svg.png" >
+          <cl-transformation width="25" crop="scale">
+          </cl-transformation>
+        </cl-image>
+        <cl-image class="lang" public-id="portfolio assets/1_mn6bOs7s6Qbao15PMNRyOA.png" >
+          <cl-transformation width="25" crop="scale">
+          </cl-transformation>
+        </cl-image>
+        <cl-image class="lang" public-id="portfolio assets/C-Sharp-Logo.gif" >
+          <cl-transformation height="25" width="25" crop="scale">
+          </cl-transformation>
+        </cl-image>
+        <cl-image class="lang" public-id="portfolio assets/Angular_full_color_logo.svg.png" >
+          <cl-transformation height="25" width="25" crop="scale">
+          </cl-transformation>
+        </cl-image>
       </div>
+    </div>
+    <div class="flex big-screen-nav">
       <nav class="push-right">
         <ul class="flex">
-          <li tabindex="1" [routerLink]="['/']" routerLinkActive="router-link-active"  class="nav-link">Home</li>
-          <li *ngIf="isAuthenticated()" tabindex="1" [routerLink]="['/admin/new-article']" routerLinkActive="router-link-active"  class="nav-link">Write Article</li>
-          <li *ngIf="isAuthenticated()" tabindex="1"  class="nav-link" (click)="openAddArticleModal()">Add Article</li>
+          <li tabindex="1" [routerLink]="['/']" routerLinkActive="nav-link--dark"  class="nav-link">Home</li>
+          <li *ngIf="isAuthenticated()" tabindex="1" [routerLink]="['/admin/new-article']" routerLinkActive="nav-link--dark"  class="nav-link">Write</li>
+          <li *ngIf="isAuthenticated()" tabindex="1" routerLinkActive="nav-link--dark"  class="nav-link" (click)="openAddArticleModal()">Add</li>
           <!-- <li tabindex="1" [routerLink]="['/']" routerLinkActive="router-link-active"  class="nav-link">Articles</li>
           <li tabindex="1" [routerLink]="['/']" routerLinkActive="router-link-active"  class="nav-link">Open Source Projects</li> -->
         </ul>
