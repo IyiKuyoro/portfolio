@@ -11,7 +11,10 @@
 }
 
 .found h1 {
-  font-size: 45px;
+  font-size: 23px;
+  max-width: 1000px;
+  width: 90%;
+  margin: 15px auto 0 auto;
 }
 
 .author {
@@ -20,18 +23,19 @@
 }
 
 .editor-container {
-  max-width: 1200px;
+  max-width: 1000px;
+  width: 90%;
   margin: 0 auto;
 }
 
 .article-body {
   font-family: "Times New Roman";
-  font-size: 25px;
-  max-width: 1200px;
+  font-size: 20px;
+  width: 100%;
   margin: 0 auto;
   margin-bottom: 50px;
-  padding: 0 20px;
-  text-align: justify;
+  text-align: left;
+  line-height: 30px;
 }
 
 .not-found h1 {
@@ -98,16 +102,4 @@ div, section {
 
 .edit_disabled {
   display: none;
-}
-
-@media screen and (max-width: 425px) {
-  .found h1 {
-    font-size: 35px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .article-body {
-    font-size: 20px;
-  }
 }

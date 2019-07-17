@@ -7,6 +7,7 @@
         class="article-card"
         [clBackgroundImage]="article.imageUrl || 'https://res.cloudinary.com/iyikuyoro/image/upload/v1551336637/portfolio%20assets/patrick-fore-381200-unsplash.jpg'"
         (click)="selectArticle(article)"
+        tabindex="0"
       >
         <div class="article-card-title">{{article.title | truncate:"40"}}</div>
         <fa-icon *ngIf="isAuthorized()" [icon]="faTrash" class="delete" (click)="onDelete(article.slug, 'others', otherArticles.indexOf(article), $event)"></fa-icon>
@@ -19,6 +20,7 @@
         class="flex article-card"
         [clBackgroundImage]="article.imageUrl || 'https://res.cloudinary.com/iyikuyoro/image/upload/v1551336637/portfolio%20assets/patrick-fore-381200-unsplash.jpg'"
         (click)="selectArticle(article)"
+        tabindex="0"
       >
         <div class="article-card-title">{{article.title | truncate:"40"}}</div>
         <fa-icon *ngIf="isAuthorized()" [icon]="faTrash" class="delete" (click)="onDelete(article.slug, 'tech', otherArticles.indexOf(article), $event)"></fa-icon>
