@@ -10,3 +10,26 @@ div, section {
 .content-inside {
   padding-bottom: 87px;
 }
+
+.projects {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bio {
+  width: 30%;
+  min-width: 300px;
+  max-width: 400px;
+  height: 497px;
+  background-color: grey;
+  border-radius: 5px;
+  margin-top: 50px;
+}
+
+app-projects {
+  width: 70%;
+  margin-right: 10px;
+}

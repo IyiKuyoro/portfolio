@@ -1,3 +1,12 @@
-<p>
-  projects works!
-</p>
+<section class="projects">
+  <div *ngFor="let project of projects" class="project">
+    <div class="product--image-container">
+      <img src="../../../assets//images/github_logo.png" alt="github log" class="project--image">
+      <div class="product--image-overlay"></div>
+    </div>
+    <div class="project--info">
+      <p class="project--header"><span class="project--title">{{project.title}}</span><span class="project--lang">{{project.language}}</span></p>
+      <p class="project--description">{{project.description}}</p>
+    </div>
+  </div>
+</section>

@@ -1,4 +1,4 @@
-export interface IModel {
+export interface IProject {
   id: number;
   title: string;
   language: string;
@@ -7,4 +7,10 @@ export interface IModel {
   host: string;
   updatedAt: Date;
   createdAt: Date;
+}
+
+export interface IProjectApiResponse {
+  success: true;
+  message: string;
+  data: IProject[];
 }
