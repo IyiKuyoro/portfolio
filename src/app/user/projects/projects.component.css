@@ -1,7 +1,11 @@
+a {
+  text-decoration: none;
+}
+
 .projects {
   max-width: 855px;
   margin-top: 50px;
-  max-height: 497px;
+  max-height: 506px;
   overflow-y: auto;
 }
 
@@ -22,8 +26,13 @@
   background: #FFFFFF;
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
-  margin-bottom: 31px;
+  margin-bottom: 25px;
   margin-right: 10px;
+}
+
+.project:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
 }
 
 .product--image-container {

@@ -12,6 +12,7 @@ div, section {
 }
 
 .projects {
+  height: fit-content;
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
@@ -24,12 +25,62 @@ div, section {
   min-width: 300px;
   max-width: 400px;
   height: 497px;
-  background-color: grey;
   border-radius: 5px;
   margin-top: 50px;
+  margin-bottom: 32px;
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
 }
 
 app-projects {
   width: 70%;
   margin-right: 10px;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0 0 0;
+}
+
+.profile-img {
+  min-width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-left: 20px;
+}
+
+.name-role {
+  margin: auto 0 auto 10px;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: left;
+}
+
+.role {
+  font-size: 14px;
+  text-align: left;
+}
+
+.bio-text {
+  font-size: 14px;
+  margin-left: 22px;
+  margin-top: 15px;
+  margin-right: 22px;
+  text-align: left;
+}
+
+.stack-title {
+  font-weight: bold;
+  font-size: 16px;
+  text-align: left;
+  margin-left: 22px;
+}
+
+.lang-list {
+  font-size: 14px;
+  line-height: 17px;
+  text-align: left;
 }
