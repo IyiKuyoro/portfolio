@@ -19,6 +19,7 @@ a {
 }
 
 .project {
+  min-width: 580px;
   max-width: 826px;
   height: 101px;
   display: grid;
@@ -91,4 +92,57 @@ a {
   text-align: left;
   color: #000000;
   margin-top: 8px;
+}
+
+.project-host {
+  display: none;
+}
+
+@media screen and (max-width: 954px) {
+  .projects {
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .project {
+    min-width: 200px;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .project {
+    grid-template-columns: 10px auto 10px;
+    grid-template-rows: auto 30px;
+    height: 100%;
+  }
+
+  .project--image,
+  .product--image-overlay,
+  .product--image-container {
+    display: none;
+  }
+
+  .project--description {
+    margin-bottom: 10px;
+  }
+
+  .project-host {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background: #C4C4C4;
+    border-radius: 0px 0px 5px 5px;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    font-weight: bold;
+    font-size: 0.4em;
+    text-align: center;
+    color: #FFFFFF;
+  }
+
+  .project-host--text {
+    margin: auto 0;
+  }
 }
