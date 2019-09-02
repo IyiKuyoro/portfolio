@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { catchError } from 'rxjs/operators';
+import { Observable, ObservableInput } from 'rxjs/Observable';
+import { throwError } from 'rxjs';
 
 import { ArticlesService } from '../../../services/articles.service';
 import { IArticle } from '../../../models/Article.model';
@@ -12,25 +15,42 @@ import { AuthService } from '../../../services/auth.service';
   templateUrl: './articles-group.component.html',
   styleUrls: ['./articles-group.component.css']
 })
-export class ArticlesGroupComponent {
+export class ArticlesGroupComponent implements OnInit {
   public articles: IArticle[] = [];
   public techArticles: IArticle[] = [];
   public otherArticles: IArticle[] = [];
+  public loading: boolean;
+  public errorMessage: string;
   public faTrash = faTrashAlt;
 
   constructor(
     public articlesService: ArticlesService,
     private router: Router,
     private authService: AuthService,
-  ) {
+  ) {}
+
+  ngOnInit() {
+    this.loading = true;
+
     this.articlesService.getAllArticles(1, 20)
+      .pipe(
+        catchError(this.handleError)
+      )
       .subscribe((data: IGetArticleResponse) => {
         if (data) {
           this.articles = data.data.articles;
+          this.loading = false;
 
           this.sortArticles();
         }
       });
+  }
+
+  handleError = (error: any, co: Observable<IGetArticleResponse>): ObservableInput<any> => {
+    this.errorMessage = 'An error has while occurred trying to load articles.';
+    this.loading = false;
+
+    return throwError(error.message);
   }
 
   private sortArticles() {

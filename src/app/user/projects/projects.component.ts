@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { catchError } from 'rxjs/operators';
+import { Observable, ObservableInput, throwError } from 'rxjs';
 
 import { ProjectService } from '../../../services/projects.service';
 import { IProject, IProjectApiResponse } from '../../../models/IProject.model';
-import { catchError } from 'rxjs/operators';
-import { Observable, ObservableInput, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-projects',

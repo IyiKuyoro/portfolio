@@ -161,7 +161,7 @@ a {
   .project {
     grid-template-columns: 10px auto 10px;
     grid-template-rows: auto 30px;
-    height: 100%;
+    height: fit-content;
   }
 
   .project--image,
