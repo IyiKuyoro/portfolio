@@ -5,7 +5,7 @@ a {
 .projects {
   max-width: 855px;
   margin-top: 50px;
-  max-height: 506px;
+  height: 506px;
   overflow-y: auto;
 }
 
@@ -16,6 +16,10 @@ a {
 .projects::-webkit-scrollbar-thumb {
   background: #C4C4C4;
   border-radius: 1.5px;
+}
+
+.error_message {
+  font-size: 16px;
 }
 
 .project {
@@ -89,6 +93,17 @@ a {
   color: #1F7700;
 }
 
+.project--lang-purple {
+  color: purple;
+}
+
+.project--lang-blue {
+  font-size: 15px;
+  align-items: center;
+  text-align: right;
+  color: blue;
+}
+
 .project--description {
   font-size: 14px;
   line-height: 21px;
@@ -99,6 +114,35 @@ a {
 
 .project-host {
   display: none;
+}
+
+.projects-loader p {
+  font-size: 18px;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 46px;
+  height: 46px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 5px solid #000000;
+  border-color: #000000 transparent #000000 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media screen and (max-width: 954px) {

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import { environment } from '../environments/environment';
 import { IProjectApiResponse } from '../models/IProject.model';
@@ -15,14 +14,6 @@ export class ProjectService {
   getAllProjects(): Observable<IProjectApiResponse> {
     const url = `${environment.backendUrl}/project`;
 
-    return this.http.get<IProjectApiResponse>(url)
-      .pipe(
-        catchError(this.handleError)
-      );
-  }
-
-  handleError(error: HttpErrorResponse) {
-    console.log(error.message);
-    return throwError(error.message);
+    return this.http.get<IProjectApiResponse>(url);
   }
 }
