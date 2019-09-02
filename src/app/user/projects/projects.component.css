@@ -25,15 +25,17 @@ a {
   display: grid;
   grid-template-columns: 107px auto 23px;
   background: #FFFFFF;
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
+  margin-top: 5px;
   margin-bottom: 25px;
   margin-right: 10px;
+  margin-left: 5px;
 }
 
 .project:hover {
   cursor: pointer;
-  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0.5px 0.5px 3px rgba(0, 0, 0, 0.25);
 }
 
 .product--image-container {
@@ -74,20 +76,21 @@ a {
 .project--title {
   font-style: normal;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 16px;
   align-items: center;
   color: #000000;
+  text-align: left;
 }
 
 .project--lang {
-  font-size: 17px;
+  font-size: 15px;
   align-items: center;
   text-align: right;
   color: #1F7700;
 }
 
 .project--description {
-  font-size: 17px;
+  font-size: 14px;
   line-height: 21px;
   text-align: left;
   color: #000000;
