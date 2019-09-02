@@ -30,10 +30,20 @@ export class ProjectsComponent implements OnInit {
         if (res.data.length === 0) {
           this.errorMessage = 'There are no projects at this time.';
         } else {
-          this.projects = res.data;
+          this.projects = this.sortProjects(res.data);
         }
         this.loading = false;
       });
+  }
+
+  sortProjects(raw: IProject[]): IProject[] {
+    let sorted: IProject[];
+
+    sorted = raw.sort((a: IProject, b: IProject): number => {
+      return new Date(a.createdAt) < new Date(b.createdAt) ? 1 : -1;
+    });
+
+    return sorted;
   }
 
   handleError = (error: any, co: Observable<IProjectApiResponse>): ObservableInput<any> => {

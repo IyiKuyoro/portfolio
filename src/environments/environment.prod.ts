@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  backendUrl: 'https://iyikuyoro-staging.herokuapp.com/api/v1',
+  backendUrl: 'https://iyikuyoro-be.herokuapp.com/api/v1',
 };
