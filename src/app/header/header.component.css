@@ -30,15 +30,11 @@ header {
 .logo-container {
   display: flex;
   align-items: center;
+  widows: 245px;
 }
 
 .logo {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin-top: 1.2em;
-  border-radius: 50%;
-  margin: 0;
+  font-size: 25px;
 }
 
 .logo:hover + [class^=stack] {

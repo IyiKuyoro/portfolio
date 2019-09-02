@@ -25,16 +25,5 @@
     "titleBar",
     "statusBar",
     "activityBar"
-  ],
-  "workbench.colorCustomizations": {
-    "titleBar.activeBackground": "#6df2b9",
-    "titleBar.activeForeground": "#15202b",
-    "titleBar.inactiveBackground": "#6df2b9",
-    "titleBar.inactiveForeground": "#15202b",
-    "statusBar.background": "#6df2b9",
-    "statusBar.foreground": "#15202b",
-    "activityBar.background": "#6df2b9",
-    "activityBar.foreground": "#15202b",
-    "activityBar.inactiveForeground": "#15202b"
-  }
+  ]
 }

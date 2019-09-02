@@ -10,3 +10,92 @@ div, section {
 .content-inside {
   padding-bottom: 87px;
 }
+
+.projects {
+  height: fit-content;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bio {
+  width: 30%;
+  min-width: 250px;
+  max-width: 400px;
+  border-radius: 5px;
+  margin-top: 55px;
+  margin-bottom: 32px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+}
+
+app-projects {
+  width: 70%;
+  margin-right: 10px;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0 0 0;
+}
+
+.profile-img {
+  min-width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-left: 20px;
+}
+
+.name-role {
+  margin: auto 0 auto 10px;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: left;
+}
+
+.role {
+  font-size: 14px;
+  text-align: left;
+}
+
+.bio-text {
+  font-size: 14px;
+  margin-left: 22px;
+  margin-top: 15px;
+  margin-right: 22px;
+  text-align: left;
+}
+
+.stack-title {
+  font-weight: bold;
+  font-size: 16px;
+  text-align: left;
+  margin-left: 22px;
+}
+
+.lang-list {
+  font-size: 14px;
+  line-height: 17px;
+  text-align: left;
+}
+
+@media screen and (max-width: 954px) {
+  .projects {
+    flex-direction: column-reverse;
+  }
+
+  .bio {
+    margin-top: 10px;
+  }
+
+  .bio,
+  app-projects {
+    width: 100%;
+    max-width: 1200px;
+  }
+}
